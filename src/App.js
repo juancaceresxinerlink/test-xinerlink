@@ -1,26 +1,24 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+import { AppRouter } from './router/AppRouter';
+import { SearchContext } from './components/search/SearchContext';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+export const App = () => {
+
+	const initialFilter = {
+		orderBy: 'recent',
+		brand: '',
+		locations: [],
+		min_salary: 0,
+		max_salary: 999999999
+	};
+
+	const [filters, setFilters] = useState(initialFilter);
+
+	return (
+		<SearchContext.Provider value={{filters, setFilters}}>
+			<AppRouter />
+		</SearchContext.Provider>
+	);
 }
 
-export default App;
