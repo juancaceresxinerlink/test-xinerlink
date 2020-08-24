@@ -1,10 +1,12 @@
-import React, { useState } from 'react'
+import React, { useContext } from 'react'
 import { JobCard } from '../ui/JobCard'
+import { SearchContext } from './SearchContext';
 
 export const SearchResult = ({ jobs }) => {
 
+    const { filters, setFilters } = useContext(SearchContext);
 
-    const [page, setPage] = useState(0);
+    const { page } = filters;
 
     // Detectamos la cantidad de páginas necesarias
     const pages = Math.ceil((jobs.length) / 10);
@@ -13,11 +15,9 @@ export const SearchResult = ({ jobs }) => {
 
     for (let i = 0; i < pages; i++) {
         resultJobs = resultJobs.concat([jobs.slice(i * 10, (i * 10) + 10)])
-        console.log('hola')
     }
 
-    console.log(resultJobs[page]);
-
+    console.log(filters.page);
 
 
     return (
@@ -48,11 +48,11 @@ export const SearchResult = ({ jobs }) => {
                     <ul>
                         {
                             page > 0 &&
-                            <button onClick={() => setPage(page - 1)}>←</button>
+                            <button onClick={() => setFilters({...filters, page: page-1})}>←</button>
                         }
                         {
                             page < pages - 1 &&
-                            <button style={{ float: 'right' }} onClick={() => setPage(page + 1)}>→</button>
+                            <button style={{ float: 'right' }} onClick={() => setFilters({...filters, page: page+1})}>→</button>
                         }
                     </ul>
                 </nav>

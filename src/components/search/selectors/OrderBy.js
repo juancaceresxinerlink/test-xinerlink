@@ -7,7 +7,7 @@ export const OrderBy = () => {
     const { filters, setFilters } = useContext(SearchContext);
 
     const handleChange = ({ value }) => {
-        setFilters({ ...filters, orderBy: value });
+        setFilters({ ...filters, orderBy: value, page: 0 });
     }
 
     const options = [

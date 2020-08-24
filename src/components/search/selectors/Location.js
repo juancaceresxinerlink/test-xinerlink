@@ -10,10 +10,10 @@ export const Location = () => {
     const handleChange = (result) => {
 
         if (!result) {
-            setFilters({ ...filters, locations: [] });
+            setFilters({ ...filters, locations: [], page: 0 });
         }
         else {
-            setFilters({ ...filters, locations: result.map(r => r.value) });
+            setFilters({ ...filters, locations: result.map(r => r.value), page: 0 });
         }
 
     }

@@ -7,7 +7,7 @@ export const Salary = () => {
     const { filters, setFilters } = useContext(SearchContext);
 
     const handleChange = ({ value }) => {
-        setFilters({ ...filters, min_salary: value.min, max_salary: value.max });
+        setFilters({ ...filters, min_salary: value.min, max_salary: value.max, page: 0 });
     }
 
     // Aqui definimos las opciones para los Salarios, como se puede apreciar el Value representa al valor que sera

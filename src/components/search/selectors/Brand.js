@@ -8,7 +8,7 @@ export const Brand = () => {
     const { filters, setFilters } = useContext(SearchContext);
 
     const handleChange = ({ value }) => {
-        setFilters({ ...filters, brand: value });
+        setFilters({ ...filters, brand: value, page: 0 });
     }
 
     const { brands } = GetAllJobs();

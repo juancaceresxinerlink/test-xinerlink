@@ -6,6 +6,7 @@ import { SearchContext } from './components/search/SearchContext';
 export const App = () => {
 
 	const initialFilter = {
+		page: 0,
 		orderBy: 'recent',
 		brand: '',
 		locations: [],
