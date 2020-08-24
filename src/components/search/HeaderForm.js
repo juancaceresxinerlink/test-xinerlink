@@ -35,6 +35,7 @@ export const HeaderForm = ({ history }) => {
 
     const resetContext = () => {
         setFilters({
+            page: 0,
             orderBy: 'recent',
             brand: '',
             locations: [],
