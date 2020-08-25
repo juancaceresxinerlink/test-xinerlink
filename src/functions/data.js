@@ -2266,6 +2266,10 @@ const jobsBrutes = [
     }
 ];
 
+// Crear una conexion con la API, que obtenga la DATA del response, y depositarla en la constante jobsBrutes.
+
+
+
 export const jobs = jobsBrutes.map((job) => {
     return {
         "id": job.id,
