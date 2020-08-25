@@ -1,6 +1,12 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
+import { Quote1 } from './quotes/Quote1'
+import { Quote2 } from './quotes/Quote2'
+import { Quote3 } from './quotes/Quote3'
 
 export const GoodJobScreen = () => {
+
+    const [quote, setQuote] = useState(1);
+
     return (
         <div>
             <div id="titlebar" style={{ background: 'linear-gradient(0deg, rgba(42, 46, 50, 0.70), rgba(42, 46, 50, 0.70)), url(images/fondo-xl2.png)' }}>
@@ -27,73 +33,24 @@ export const GoodJobScreen = () => {
                     <div className="widget">
 
                         <ul className="tabs-nav blog">
-                            <li className="active"><a href="#tab1">confiable</a></li>
-                            <li><a href="#tab2">inclusivo</a></li>
-                            <li><a href="#tab3">flexible</a></li>
-
+                            <li><a href="#!" className={quote === 1 && 'active'} onClick={ (e) => {e.preventDefault(); setQuote(1)} }>confiable</a></li>
+                            <li><a href="#!" className={quote === 2 && 'active'} onClick={ (e) => {e.preventDefault(); setQuote(2)} }>inclusivo</a></li>
+                            <li><a href="#!" className={quote === 3 && 'active'} onClick={ (e) => {e.preventDefault(); setQuote(3)} }>flexible</a></li>
                         </ul>
 
                         <div className="tabs-container">
-
-                            <div className="tab-content" id="tab1">
-
-                                <ul className="widget-tabs">
-
-                                    <li>
-                                        <div className="widget">
-                                            <div className="post-quote">
-                                                <span className="icon"></span>
-                                                <blockquote>
-                                                    Un buen trabajo es confiable y te da seguridad.
-                                <br /><br />
-                                Nuestro compromiso está siempre basado en la honestidad y capacidad técnica, tanto en nuestro comportamiento individual como colectivo.
-                                <br /><br />
-                                Nuestros procesos están certificados, lo que nos permite cumplir nuestras obligaciones con reponsabilidad y puntualidad hacia nuestros colaboradores.
-                            </blockquote>
-                                            </div>
-                                        </div>
-                                    </li>
-
-
-                                </ul>
-
-                            </div>
-
-                            <div className="tab-content" id="tab2">
-                                <ul className="widget-tabs">
-
-                                    <div className="widget">
-
-
-
-                                        <div className="post-quote">
-                                            <span className="icon"></span>
-                                            <blockquote>
-                                                La diversidad forma parte de la cultura de XinerLink.
-                            <br /><br />Sabemos por experiencia que una discapacidad, preferencia sexual o nacionalidad no están asociados a un mejor o peor desempeño laboral.
-                            <br /><br />Es por esto que desde el año 2017 tenemos un programa especial de Inclusión y Diversidad, trabajando y capacitándonos día a día para ser un referente en la industria de RRHH.
-						</blockquote>
-                                        </div>
-                                    </div>
-                                </ul>
-                            </div>
-
-                            <div className="tab-content" id="tab3">
-
-                                <ul className="widget-tabs">
-
-                                    <div className="widget">
-                                        <div className="post-quote">
-                                            <span className="icon"></span>
-                                            <blockquote>
-                                                Un buen trabajo es flexible.
-                                <br /><br />
-                                Tenemos la capacidad de adaptabilidad suficiente para ser flexibles a cambios, desafíos y necesidades
-                            </blockquote>
-                                        </div>
-                                    </div>
-                                </ul>
-                            </div>
+                            {
+                                quote === 1 &&
+                                <Quote1/>
+                            }
+                            {
+                                quote === 2 &&
+                                <Quote2/>
+                            }
+                            {
+                                quote === 3 &&
+                                <Quote3/>
+                            }
 
                         </div>
                     </div>
