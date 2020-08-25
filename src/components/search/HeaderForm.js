@@ -31,6 +31,7 @@ export const HeaderForm = ({ history }) => {
     const handleSearch = (e) => {
         e.preventDefault();
         history.push(`/oportunidades?q=${searchText}`);
+        setFilters({...filters, page: 0});
     }
 
     const resetContext = () => {

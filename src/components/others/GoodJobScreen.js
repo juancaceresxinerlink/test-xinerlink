@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import { Quote1 } from './quotes/Quote1'
 import { Quote2 } from './quotes/Quote2'
 import { Quote3 } from './quotes/Quote3'

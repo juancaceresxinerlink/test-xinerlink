@@ -1,10 +1,13 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import queryString from 'query-string';
 import { Link, useLocation } from 'react-router-dom'
 import { GetAllJobs } from '../../functions/GetAllJobs'
 import { useForm } from '../../hooks/useForm';
+import { SearchContext } from '../search/SearchContext';
 
 export const BannerHome = ({ history }) => {
+
+    const {filters, setFilters} = useContext(SearchContext);
 
     const { count } = GetAllJobs();
 
@@ -22,6 +25,7 @@ export const BannerHome = ({ history }) => {
     const handleSearch = (e) => {
         e.preventDefault();
         history.push(`/oportunidades?q=${searchText}`);
+        setFilters({...filters, page: 0});
     }
 
     return (

@@ -13,12 +13,17 @@ export const GetAllJobs = () => {
     const location = useLocation();
     const { q = '' } = queryString.parse(location.search)
 
+    // funcion para remover acentos
+    const removeAccents = (str) => {
+        return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+    }
+
     // Filtramos por titulo o descripcion
     var filterJobs = jobs.filter(job => {
-        if(job.title.toLowerCase().includes(q.toLowerCase()) || job.description.toLowerCase().includes(q.toLowerCase()) || job.brand.toLowerCase().includes(q.toLowerCase()) || job.min_requirements.toLowerCase().includes(q.toLowerCase())) return true;
+        if (removeAccents(job.title.toLowerCase()).includes(removeAccents(q.toLowerCase())) || removeAccents(job.description.toLowerCase()).includes(removeAccents(q.toLowerCase())) || removeAccents(job.brand.toLowerCase()).includes(removeAccents(q.toLowerCase())) || removeAccents(job.min_requirements.toLowerCase()).includes(removeAccents(q.toLowerCase()))) return true;
         return false;
     });
-    
+
     // Filtramos por el rubro
     filterJobs = filterJobs.filter(job => job.brand.includes(filters.brand));
 
@@ -29,11 +34,9 @@ export const GetAllJobs = () => {
 
             const interLocations = job.locations.map(l => l.city.name);
 
-            for(let i = 0; i<interLocations.length; i++)
-            {
-                for(let x = 0; x<filters.locations.length; x++)
-                {
-                    if(interLocations[i].includes(filters.locations[x])) return true;
+            for (let i = 0; i < interLocations.length; i++) {
+                for (let x = 0; x < filters.locations.length; x++) {
+                    if (interLocations[i].includes(filters.locations[x])) return true;
                 }
             }
             return false;
@@ -42,9 +45,9 @@ export const GetAllJobs = () => {
     }
 
     // Filtramos sueldos
-    filterJobs = filterJobs.filter( job => {
+    filterJobs = filterJobs.filter(job => {
 
-        if(job.max_salary >= filters.min_salary && job.max_salary <= filters.max_salary) return true;
+        if (job.max_salary >= filters.min_salary && job.max_salary <= filters.max_salary) return true;
         return false;
 
     });
