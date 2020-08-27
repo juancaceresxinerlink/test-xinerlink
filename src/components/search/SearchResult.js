@@ -17,15 +17,12 @@ export const SearchResult = ({ jobs }) => {
         resultJobs = resultJobs.concat([jobs.slice(i * 10, (i * 10) + 10)])
     }
 
-    console.log(filters.page);
-
-
     return (
         <div className="listings-container">
 
             {
                 (jobs.length === 0) &&
-                <h5 style={{ textAlign: 'center' }} className="animate__animated animate__fadeIn">No se encontró resultados con tus filtros seleccionados...</h5>
+                <h5 style={{ textAlign: 'center' }} className="animate__animated animate__fadeIn">No tenemos resultados que coincidan con tu búsqueda. Pero recuerda que puedes dejarnos tu CV <a href="https://trabajo.xinerlink.cl/jobs/1029494">aquí</a> y te consideraremos en futuras búsquedas.</h5>
             }
             {
                 (jobs.length > 0) &&

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { AppRouter } from './router/AppRouter';
 import { SearchContext } from './components/search/SearchContext';
+import { useFetch } from './hooks/useFetch';
 
 
 export const App = () => {
@@ -16,8 +17,10 @@ export const App = () => {
 
 	const [filters, setFilters] = useState(initialFilter);
 
+	const { data, loading } = useFetch('https://cors-anywhere.herokuapp.com/https://okkfgfozi0.execute-api.us-east-2.amazonaws.com/beta');
+
 	return (
-		<SearchContext.Provider value={{filters, setFilters}}>
+		<SearchContext.Provider value={{filters, setFilters, data, loading}}>
 			<AppRouter />
 		</SearchContext.Provider>
 	);

@@ -9,7 +9,7 @@ export const BannerHome = ({ history }) => {
 
     const {filters, setFilters} = useContext(SearchContext);
 
-    const { count } = GetAllJobs();
+    const { slots } = GetAllJobs();
 
     // Obtenemos parametros de la URL
     const location = useLocation();
@@ -36,7 +36,7 @@ export const BannerHome = ({ history }) => {
                     <div className="search-container">
                         <h2>Encuentra un buen trabajo</h2>
                         <div className="announce">
-                            ¡Tenemos más de <strong>{count}</strong> oportunidades laborales para ti!
+                            ¡Tenemos más de <strong>{slots}</strong> oportunidades laborales para ti!
                         </div>
                         <br />
                         <form onSubmit={handleSearch}>

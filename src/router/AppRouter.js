@@ -16,17 +16,17 @@ export const AppRouter = () => {
     return (
         <Router>
             <div id="wrapper">
-            <Navbar/>
-            <Switch>
-                <Route exact path="/oportunidades" component={SearchScreen}/>
-                <Route exact path="/cargos" component={CargosScreen}/>
-                <Route exact path="/un-buen-trabajo" component={GoodJobScreen}/>
-                <Route exact path="/" component={HomeScreen} />
+                <Navbar />
+                <Switch>
+                        <Route exact path="/oportunidades" component={SearchScreen} />
+                        <Route exact path="/cargos" component={CargosScreen} />
+                        <Route exact path="/un-buen-trabajo" component={GoodJobScreen} />
+                        <Route exact path="/" component={HomeScreen} />
 
-                <Redirect to="/"/>
-            </Switch>
+                    <Redirect to="/" />
+                </Switch>
             </div>
-            <Footer/>
+            <Footer />
         </Router>
     )
 }
