@@ -17,3 +17,7 @@ Cualquier edición debe ser realizada en el código fuente, para ver los cambios
 ### `npm start`
 
 La carpeta /src es la encargada de contener todos los archivos que fueron utilizados para realizar este proyecto, la misma se divide en componentes, funciones, hooks, routers y los archivos principales de la App.
+
+### Cambios en la API
+
+Dentro de la carpeta SRC se encuntra 'App.js', ese archivo es el encargado de realizar la petición a la API mediante el hook useFetch. Para modificar la url cambias la constante dentro de App.js, y para agregar headers deberas modificar el hook 'useFetch' que se encuentra en la carpeta Hooks.
