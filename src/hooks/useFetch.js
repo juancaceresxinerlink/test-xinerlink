@@ -7,6 +7,8 @@ export const useFetch = (url) => {
     useEffect(() => {
 
         setState({ data: null, loading: true, error: null });
+
+        // Para agregar headers, debes ingresarlos despues de 'url', ejemplo: fetch(url, {headers});
         fetch(url)
             .then(resp => resp.json())
             .then(data => {
