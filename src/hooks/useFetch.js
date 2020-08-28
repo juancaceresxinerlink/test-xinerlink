@@ -2,6 +2,10 @@ import { useState, useEffect } from 'react'
 
 export const useFetch = (url) => {
 
+const headers =  {
+    X-API-Key:BmSSsb4cCQaFWASjdJ7yA2pPp6RtmWsq0URZUsu0
+     }
+
     const [state, setState] = useState({ data: null, loading: true, error: null })
 
     useEffect(() => {
@@ -9,7 +13,7 @@ export const useFetch = (url) => {
         setState({ data: null, loading: true, error: null });
 
         // Para agregar headers, debes ingresarlos despues de 'url', ejemplo: fetch(url, {headers});
-        fetch(url)
+        fetch(url, headers)
             .then(resp => resp.json())
             .then(data => {
 
